@@ -10,7 +10,8 @@ import { NextRequest, NextResponse } from 'next/server';
 export const runtime = 'edge';
 
 const STREAM_TIMEOUT_MS = 20000;
-const REALISTIC_USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36';
+const REALISTIC_USER_AGENT = const REALISTIC_USER_AGENT = 'okhttp/Mod-1.5.0.0';
+
 
 function resolveUrl(base: string, relative: string): string {
   if (relative.startsWith('http://') || relative.startsWith('https://')) {
