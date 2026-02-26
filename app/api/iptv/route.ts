@@ -28,9 +28,20 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const text = await response.text();
+        const text = await response.text();
+    const origin = new URL(request.url).origin;
 
-    return new NextResponse(text, {
+    // 强制代理补丁：把列表里的链接全部重定向到我们的 stream 接口
+    const proxiedText = text.split('\n').map(line => {
+      const trimmedLine = line.trim();
+      if (trimmedLine.startsWith('http')) {
+        return `${origin}/api/iptv/stream?url=${encodeURIComponent(trimmedLine)}`;
+      }
+      return line;
+    }).join('\n');
+
+    return new NextResponse(proxiedText, {
+
       status: 200,
       headers: {
         'Content-Type': 'text/plain; charset=utf-8',
