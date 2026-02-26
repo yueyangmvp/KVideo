@@ -102,7 +102,7 @@ export async function GET(request: NextRequest) {
   try {
     const parsedUrl = new URL(url);
     const fetchHeaders: Record<string, string> = {
-      'User-Agent': 'okHttp/Mod-1.5.0.0',
+       'User-Agent': 'okHttp/Mod-1.5.0.0',
       'Accept': '*/*',
       'Referer': customReferer || `${parsedUrl.protocol}//${parsedUrl.host}/`,
       'Origin': `${parsedUrl.protocol}//${parsedUrl.host}`,
