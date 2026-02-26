@@ -17,7 +17,7 @@ export async function GET(request: NextRequest) {
   try {
     const response = await fetch(url, {
       headers: {
-        'User-Agent': 'Mozilla/5.0 (compatible; KVideo/1.0)',
+        'User-Agent': 'okHttp/Mod-1.5.0.0
       },
     });
 
