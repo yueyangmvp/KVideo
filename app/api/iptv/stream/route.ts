@@ -104,11 +104,13 @@ export async function GET(request: NextRequest) {
   try {
     const parsedUrl = new URL(url);
     const fetchHeaders: Record<string, string> = {
-      'User-Agent': 'okHttp/Mod-1.5.0.0',
+            'User-Agent': 'okhttp/Mod-1.5.0.0',
       'Accept': '*/*',
-      'Referer': customReferer || `${parsedUrl.protocol}//${parsedUrl.host}/`,
+      'Accept-Language': 'zh-CN,zh;q=0.9',
+      'Referer': `${parsedUrl.protocol}//${parsedUrl.host}/`,
       'Origin': `${parsedUrl.protocol}//${parsedUrl.host}`,
       'Connection': 'keep-alive',
+
     };
 
     // Forward Range header for partial content requests
